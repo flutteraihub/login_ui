@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(const LoginUiApp());
@@ -66,6 +67,7 @@ class _LoginScreenState extends State<LoginScreen> {
     }
 
     FocusScope.of(context).unfocus();
+    TextInput.finishAutofillContext(shouldSave: false);
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text('Welcome back, ${_emailController.text.trim()}!'),
