@@ -26,7 +26,8 @@ void main() {
   testWidgets('submits valid credentials', (tester) async {
     await tester.pumpWidget(const LoginUiApp());
 
-    await tester.enterText(find.byKey(const Key('emailField')), 'sam@example.com');
+    await tester.enterText(
+        find.byKey(const Key('emailField')), 'sam@example.com');
     await tester.enterText(find.byKey(const Key('passwordField')), 'secret1');
     await tester.tap(find.byKey(const Key('signInButton')));
     await tester.pump();

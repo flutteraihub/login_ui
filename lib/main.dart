@@ -29,7 +29,8 @@ class LoginUiApp extends StatelessWidget {
             borderRadius: BorderRadius.circular(18),
             borderSide: const BorderSide(color: Color(0xFF4F46E5), width: 1.5),
           ),
-          contentPadding: const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
+          contentPadding:
+              const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
         ),
       ),
       home: const LoginScreen(),
@@ -176,7 +177,8 @@ class _LoginCard extends StatelessWidget {
               Text(
                 'Sign in to continue managing your account.',
                 textAlign: TextAlign.center,
-                style: textTheme.bodyMedium?.copyWith(color: const Color(0xFF64748B)),
+                style: textTheme.bodyMedium
+                    ?.copyWith(color: const Color(0xFF64748B)),
               ),
               const SizedBox(height: 28),
               TextFormField(
@@ -213,7 +215,8 @@ class _LoginCard extends StatelessWidget {
                   prefixIcon: const Icon(Icons.lock_outline_rounded),
                   suffixIcon: IconButton(
                     key: const Key('togglePasswordButton'),
-                    tooltip: obscurePassword ? 'Show password' : 'Hide password',
+                    tooltip:
+                        obscurePassword ? 'Show password' : 'Hide password',
                     onPressed: onTogglePassword,
                     icon: Icon(
                       obscurePassword
@@ -234,17 +237,29 @@ class _LoginCard extends StatelessWidget {
                 },
               ),
               const SizedBox(height: 10),
-              Row(
+              Wrap(
+                alignment: WrapAlignment.spaceBetween,
+                crossAxisAlignment: WrapCrossAlignment.center,
+                runSpacing: 4,
                 children: [
-                  Checkbox(
-                    key: const Key('rememberMeCheckbox'),
-                    value: rememberMe,
-                    onChanged: onRememberChanged,
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Checkbox(
+                        key: const Key('rememberMeCheckbox'),
+                        value: rememberMe,
+                        onChanged: onRememberChanged,
+                        visualDensity: VisualDensity.compact,
+                      ),
+                      const Text('Remember me'),
+                    ],
                   ),
-                  const Text('Remember me'),
-                  const Spacer(),
                   TextButton(
                     onPressed: () {},
+                    style: TextButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    ),
                     child: const Text('Forgot password?'),
                   ),
                 ],
