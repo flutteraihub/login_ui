@@ -4,6 +4,8 @@
 .packages
 .pub-cache/
 .pub/
+.idea/
+*.iml
 build/
 coverage/
 ios/Flutter/.last_build_id
