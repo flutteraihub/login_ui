@@ -159,6 +159,7 @@ class _LoginCard extends StatelessWidget {
         padding: const EdgeInsets.all(28),
         child: Form(
           key: formKey,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
